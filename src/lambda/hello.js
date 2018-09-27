@@ -151,7 +151,7 @@ exports.handler = async (event, context, callback) => {
     }
   }
 
-  console.log(["\n\n\n",result,"\n\n\n"])
+  console.log(["\n\n\n",JSON.stringify(result.data),"\n\n\n"])
   // Setup context
   var context = result.data.data.valueDomains.edges[0].node
 
