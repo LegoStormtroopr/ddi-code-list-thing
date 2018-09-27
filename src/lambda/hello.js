@@ -119,7 +119,6 @@ exports.handler = async (event, context, callback) => {
     // axios options
     var options = {}
     ddi_template_string = await axios(ddi_template_filename, options);
-    console.log(ddi_template_string);
     // ddi_template_string = await readFile(ddi_template_filename, {encoding: 'utf-8'})
   } catch(err) {
     console.log(err);
@@ -152,6 +151,7 @@ exports.handler = async (event, context, callback) => {
     }
   }
 
+  console.log(["\n\n\n",result,"\n\n\n"])
   // Setup context
   var context = result.data.data.valueDomains.edges[0].node
 
