@@ -4,25 +4,41 @@
 Generated from Aristotle Metadata Registry
 
 -->
-<g:ResourcePackage xmlns:ddi="ddi:instance:3_2" xmlns:a="ddi:archive:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:g="ddi:group:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd">
-	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:ResourcePkg_QBlock:1</r:URN>
-	<!-- CategoryScheme == ISO 11179 ConceptualDomain -->
-	<l:CategoryScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+<ddi:FragmentInstance
+	xmlns:ddi="ddi:instance:3_2"
+	xmlns:r="ddi:reusable:3_2"
+	xmlns:g="ddi:group:3_2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="ddi:instance:3_2 ../../XMLSchema/instance.xsd" 
+	xmlns:a="ddi:archive:3_2"
+	xmlns:c="ddi:conceptualcomponent:3_2"
+	xmlns:cm="ddi:comparative:3_2"
+	xmlns:d="ddi:datacollection:3_2"
+	xmlns:l="ddi:logicalproduct:3_2"
+	xmlns:p="ddi:physicaldataproduct:3_2"
+	xmlns:pi="ddi:physicalinstance:3_2"
+	xmlns:pr="ddi:ddiprofile:3_2"
+	xmlns:s="ddi:studyunit:3_2"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+<ddi:Fragment>
+
+	<l:CategoryScheme scopeOfUniqueness="Agency" isMaintainable="true">
 		<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ conceptualDomain.identifier.identifier }}:{{ conceptualDomain.identifier.version }}</r:URN>
 		<l:CategorySchemeName><r:String xml:lang="en-us">{{ conceptualDomain.name }}</r:String></l:CategorySchemeName>
         {{#each permissiblevalueSet}}
-		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+		<l:Category isVersionable="true" >
 		   	<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../conceptualDomain.identifier.identifier }}.{{this.valueMeaning.order}}:{{ ../conceptualDomain.identifier.version }}</r:URN>
 			<l:CategoryName><r:String xml:lang="en-us">{{ this.valueMeaning.name }}</r:String></l:CategoryName>
 		        <r:Label><r:Content xml:lang="en-us">{{this.valueMeaning.definition}}</r:Content></r:Label>
 		</l:Category>  
 		{{/each}}
 	</l:CategoryScheme>
+</ddi:Fragment>
+<ddi:Fragment>
 	<!-- CategoryScheme == ISO 11179 ValueDomain -->
-	<l:CodeListScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
-		<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ conceptualDomain.identifier.identifier }}--CodeScheme:{{ conceptualDomain.identifier.version }}</r:URN>
-		<l:CodeListSchemeName><r:String xml:lang="en-us">{{ valueDomain.name }}</r:String></l:CodeListSchemeName>
-		<l:CodeList scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<l:CodeList scopeOfUniqueness="Agency" isMaintainable="true">
 			<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ uuid }}--CodeList:{{ version }}</r:URN>
 			<r:RecommendedDataType>Character</r:RecommendedDataType>
 			<r:CategorySchemeReference>
@@ -30,8 +46,8 @@ Generated from Aristotle Metadata Registry
 				<r:TypeOfObject>CategoryScheme</r:TypeOfObject>
 			</r:CategorySchemeReference>
 	        {{#each permissiblevalueSet}}
-			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
-				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_CL_1.C_1:1</r:URN>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Agency" isIdentifiable="true">
+				<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../uuid }}.{{this.valueMeaning.order}}:{{ ../conceptualDomain.identifier.version }}</r:URN>
 				<r:CategoryReference>
 					<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../conceptualDomain.identifier.identifier }}.{{this.valueMeaning.order}}:{{ ../conceptualDomain.identifier.version }}</r:URN>
 					<r:TypeOfObject>Category</r:TypeOfObject>
@@ -40,6 +56,5 @@ Generated from Aristotle Metadata Registry
 			</l:Code>
 		{{/each}}
 		</l:CodeList>	
-	</l:CodeListScheme>
-</g:ResourcePackage>
-
+</ddi:Fragment>
+</ddi:FragmentInstance>
