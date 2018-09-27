@@ -119,7 +119,7 @@ exports.handler = async (event, context, callback) => {
     console.log(err);
     return {
       statusCode: 404,
-      body: 'Not Found'
+      body: 'Template not Found'
     }
   }
 
