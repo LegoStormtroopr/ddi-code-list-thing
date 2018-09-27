@@ -39,9 +39,11 @@ exports.handler = async (event, context, callback) => {
   var ddi_template_filename;
   if (ddi_version == "3.2") {
     ddi_template_filename = 'ddi-codelist-template-3.2.xml'
+    ddi_template_filename = "https://raw.githubusercontent.com/LegoStormtroopr/ddi-code-list-thing/master/ddi-codelist-template-3.2.xml"
   }
   else if (ddi_version == "3.3") {
     ddi_template_filename = 'ddi-codelist-template-3.3.xml'
+    ddi_template_filename = "https://raw.githubusercontent.com/LegoStormtroopr/ddi-code-list-thing/master/ddi-codelist-template-3.3.xml"
   }
   // Validate ddi
   if (ddi_template_filename === undefined) {
@@ -114,7 +116,11 @@ exports.handler = async (event, context, callback) => {
   // Read xml template file
   var ddi_template_string
   try {
-    ddi_template_string = await readFile(ddi_template_filename, {encoding: 'utf-8'})
+    // axios options
+    var options = {}
+    ddi_template_string = await axios(ddi_template_filename, options);
+    console.log(ddi_template_string);
+    // ddi_template_string = await readFile(ddi_template_filename, {encoding: 'utf-8'})
   } catch(err) {
     console.log(err);
     return {
@@ -124,7 +130,7 @@ exports.handler = async (event, context, callback) => {
   }
 
   // Compile handlebars template
-  var template = handlebars.compile(ddi_template_string)
+  var template = handlebars.compile(ddi_template_string.data)
   
   // axios options
   var options = {
