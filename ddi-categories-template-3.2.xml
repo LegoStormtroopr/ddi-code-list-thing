@@ -32,10 +32,10 @@ Generated from Aristotle Metadata Registry
 <ddi:Fragment>
         {{#each conceptualDomain.valuemeaningSet}}
 		<l:Category isVersionable="true" >
-		   	<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../conceptualDomain.identifier.identifier }}.{{this.order}}:{{ ../conceptualDomain.identifier.version }}</r:URN>
+		   	<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../conceptualDomain.identifier.identifier }}.{{ this.name }}:{{ ../conceptualDomain.identifier.version }}</r:URN>
 			<l:CategoryName><r:String xml:lang="en-us">{{ this.name }}</r:String></l:CategoryName>
 		        <r:Label><r:Content xml:lang="en-us">{{this.definition}}</r:Content></r:Label>
 		</l:Category>  
-		{{/each}}
+	{{/each}}
 </ddi:Fragment>
 </ddi:FragmentInstance>
