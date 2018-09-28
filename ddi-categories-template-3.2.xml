@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Generated from Aristotle Metadata Registry
+
+-->
+<ddi:FragmentInstance
+	xmlns:ddi="ddi:instance:3_2"
+	xmlns:r="ddi:reusable:3_2"
+	xmlns:g="ddi:group:3_2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="ddi:instance:3_2 ../../XMLSchema/instance.xsd" 
+	xmlns:a="ddi:archive:3_2"
+	xmlns:c="ddi:conceptualcomponent:3_2"
+	xmlns:cm="ddi:comparative:3_2"
+	xmlns:d="ddi:datacollection:3_2"
+	xmlns:l="ddi:logicalproduct:3_2"
+	xmlns:p="ddi:physicaldataproduct:3_2"
+	xmlns:pi="ddi:physicalinstance:3_2"
+	xmlns:pr="ddi:ddiprofile:3_2"
+	xmlns:s="ddi:studyunit:3_2"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+<ddi:Fragment>
+	<!-- CategoryScheme == ISO 11179 ConceptualDomain -->
+	<l:CategoryScheme scopeOfUniqueness="Agency">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ conceptualDomain.identifier.identifier }}:{{ conceptualDomain.identifier.version }}</r:URN>
+		<l:CategorySchemeName><r:String xml:lang="en-us">{{ conceptualDomain.name }}</r:String></l:CategorySchemeName>
+	</l:CategoryScheme>
+</ddi:Fragment>
+<ddi:Fragment>
+        {{#each conceptualDomain.valuemeaningSet}}
+		<l:Category isVersionable="true" >
+		   	<r:URN typeOfIdentifier="Canonical">urn:ddi:ddi-cv:{{ ../conceptualDomain.identifier.identifier }}.{{this.order}}:{{ ../conceptualDomain.identifier.version }}</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">{{ this.name }}</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">{{this.definition}}</r:Content></r:Label>
+		</l:Category>  
+		{{/each}}
+</ddi:Fragment>
+</ddi:FragmentInstance>
